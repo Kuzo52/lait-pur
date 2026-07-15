@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useCallback, useRef, type MouseEvent } from "react";
 import { useProductTheme } from "@/context/ProductThemeContext";
+import { BRAND } from "@/data/content";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -143,8 +144,8 @@ export function MilkBottle() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
           >
-            <p className="font-display text-[10px] tracking-[0.22em] text-[var(--graphite)]/50 uppercase">
-              Lait Pur
+            <p className="font-display text-[10px] tracking-[0.18em] text-[var(--graphite)]/50 uppercase">
+              {BRAND}
             </p>
             <p className="mt-1 font-display text-lg leading-tight text-[var(--graphite)]">
               {product.name}

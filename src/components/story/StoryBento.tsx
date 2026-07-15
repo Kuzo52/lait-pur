@@ -27,13 +27,13 @@ export function StoryBento() {
           transition={{ duration: 0.8, ease: EASE }}
         >
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--graphite)]/45 uppercase">
-            Our Story
+            Наша история
           </p>
           <h2 className="font-display text-[clamp(2.2rem,4.4vw,3.5rem)] leading-[1.1] text-[var(--graphite)]">
             Ферма, где вкус начинается с&nbsp;тишины
           </h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[var(--graphite)]/60">
-            Три принципа Lait&nbsp;Pur: спокойные животные, чистая органика
+            Три принципа «Чистого Луга»: спокойные животные, чистая органика
             и&nbsp;упаковка без&nbsp;послевкусия в&nbsp;земле.
           </p>
         </motion.div>
@@ -55,6 +55,7 @@ export function StoryBento() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08, duration: 0.7, ease: EASE }}
                 whileHover={{ y: -6, scale: 1.01 }}
+                whileTap={{ scale: 0.96 }}
               >
                 <RevealImage
                   src={tile.image}

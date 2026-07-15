@@ -48,6 +48,7 @@ function Testimonials() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ delay: i * 0.1, duration: 0.7, ease: EASE }}
             whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.96 }}
           >
             <div className="relative h-44 overflow-hidden">
               <RevealImage

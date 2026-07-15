@@ -109,3 +109,12 @@ a {
 .perspective-\[1200px\] {
   perspective: 1200px;
 }
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

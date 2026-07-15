@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Условия — Lait Pur",
-  description: "Условия использования сайта Lait Pur.",
+  title: "Условия — Чистый Луг",
+  description: "Условия использования сайта «Чистый Луг».",
 };
 
 export default function TermsPage() {
@@ -20,20 +20,21 @@ export default function TermsPage() {
       </h1>
       <div className="mt-8 space-y-4 text-[15px] leading-relaxed text-[var(--graphite)]/70">
         <p>
-          Материалы сайта Lait&nbsp;Pur носят ознакомительный характер. Наличие
-          вкусов и&nbsp;партий зависит от&nbsp;сезона и&nbsp;региона доставки.
+          Материалы сайта «Чистый&nbsp;Луг» носят ознакомительный характер.
+          Наличие вкусов и&nbsp;партий зависит от&nbsp;сезона и&nbsp;региона
+          доставки.
         </p>
         <p>
-          Все товарные знаки и&nbsp;визуальные материалы принадлежат бренду
-          либо используются с&nbsp;разрешения правообладателей.
+          Все товарные знаки и&nbsp;визуальные материалы принадлежат бренду либо
+          используются с&nbsp;разрешения правообладателей.
         </p>
         <p>
           По&nbsp;вопросам сотрудничества:&nbsp;
           <a
-            href="mailto:hello@laitpur.farm"
+            href="mailto:hello@chistiy-lug.ru"
             className="underline decoration-[var(--graphite)]/25 hover:decoration-[var(--graphite)]/60"
           >
-            hello@laitpur.farm
+            hello@chistiy-lug.ru
           </a>
           .
         </p>

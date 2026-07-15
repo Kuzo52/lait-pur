@@ -49,8 +49,9 @@ export function MagneticButton({
       style={{ x, y }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
+      whileTap={{ scale: 0.96 }}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[14px] bg-[var(--graphite)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--milk)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97]",
+        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[14px] bg-[var(--graphite)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--milk)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
         className,
       )}
     >

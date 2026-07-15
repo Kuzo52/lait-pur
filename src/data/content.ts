@@ -20,24 +20,27 @@ export interface Product {
   imageAlt: string;
 }
 
+/** Канонические фото Unsplash (CDN без CORS). */
 export const IMAGES = {
   heroBottle:
-    "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80",
   farmMist:
-    "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80",
   classicPour:
-    "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80",
   craftAlt:
-    "https://images.unsplash.com/photo-1576186726115-4d51596775d1?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1576186726115-4d51596775d1?auto=format&fit=crop&w=800&q=80",
   chocolate:
-    "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80",
   glassMorning:
-    "https://images.unsplash.com/photo-1628088062854-d1870b45533b?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1628088062854-d1870b45533b?auto=format&fit=crop&w=800&q=80",
   packaging:
-    "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80",
   organic:
-    "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80",
 } as const;
+
+export const BRAND = "Чистый Луг";
 
 export const products: Product[] = [
   {
@@ -45,7 +48,7 @@ export const products: Product[] = [
     name: "Классическое",
     tagline: "Цельное. Мягкое. Честное.",
     description:
-      "Молоко травяного откорма с\u00a0естественной жирностью 3,5%. Без\u00a0гомогенизации для\u00a0той самой «сливочной» текстуры.",
+      "Молоко травяного откорма с\u00a0естественной жирностью 3,5%. Без\u00a0гомогенизации\u00a0— та\u00a0самая сливочная текстура.",
     volume: "750\u00a0мл",
     calories: "64\u00a0ккал",
     protein: "3,4\u00a0г",
@@ -65,7 +68,7 @@ export const products: Product[] = [
     name: "Овсяное",
     tagline: "Бархатная пена в\u00a0каждой чашке.",
     description:
-      "Органический овёс с\u00a0нормандских полей. Идеально для\u00a0латте: плотная микропена и\u00a0лёгкая сладость злака.",
+      "Органический овёс с\u00a0нормандских полей. Плотная микропена и\u00a0лёгкая злаковая сладость\u00a0— для\u00a0идеального латте.",
     volume: "750\u00a0мл",
     calories: "48\u00a0ккал",
     protein: "1,2\u00a0г",
@@ -85,7 +88,7 @@ export const products: Product[] = [
     name: "Миндальное",
     tagline: "Лёгкость с\u00a0ореховым характером.",
     description:
-      "Калифорнийский миндаль холодного отжима. Тонкий ореховый привкус без\u00a0лишней сладости и\u00a0добавок.",
+      "Миндаль холодного отжима. Тонкий ореховый привкус без\u00a0лишней сладости и\u00a0добавок.",
     volume: "750\u00a0мл",
     calories: "39\u00a0ккал",
     protein: "1,5\u00a0г",
@@ -103,9 +106,9 @@ export const products: Product[] = [
   {
     id: "chocolate",
     name: "Шоколадное",
-    tagline: "Какао Single\u00a0Origin. Без\u00a0сиропов.",
+    tagline: "Настоящее какао. Без\u00a0сиропов.",
     description:
-      "Натуральное какао из\u00a0Эквадора и\u00a0наше классическое молоко. Детский вкус взрослой чистоты состава.",
+      "Натуральное какао одного урожая и\u00a0наше классическое молоко. Знакомый вкус\u00a0— чистый состав.",
     volume: "750\u00a0мл",
     calories: "72\u00a0ккал",
     protein: "3,1\u00a0г",
@@ -143,8 +146,8 @@ export const storyTiles = [
   {
     id: "organic",
     title: "100%\u00a0органика",
-    eyebrow: "EU Organic",
-    body: "Никаких гормонов, антибиотиков и\u00a0ГМО. Только сертифицированное сырьё.",
+    eyebrow: "Европейский стандарт",
+    body: "Без\u00a0гормонов, антибиотиков и\u00a0ГМО. Только сертифицированное сырьё.",
     span: "lg:col-span-1 lg:row-span-1",
     accent: "sky",
     image: IMAGES.organic,
@@ -153,7 +156,7 @@ export const storyTiles = [
   {
     id: "packaging",
     title: "Эко-упаковка",
-    eyebrow: "Cycle\u00a0Ready",
+    eyebrow: "Замкнутый цикл",
     body: "Стекло и\u00a0бумага из\u00a0восстановленных лесов. Бутылка возвращается в\u00a0оборот.",
     span: "lg:col-span-1 lg:row-span-1",
     accent: "cream",
@@ -163,7 +166,7 @@ export const storyTiles = [
   {
     id: "craft",
     title: "Малая партия",
-    eyebrow: "Chaque matin",
+    eyebrow: "Каждое утро",
     body: "Пастеризация при\u00a0бережной температуре. Молоко покидает ферму в\u00a0течение 12\u00a0часов.",
     span: "lg:col-span-2 lg:row-span-1",
     accent: "graphite",
@@ -177,7 +180,7 @@ export const timelineSteps = [
     id: "pasture",
     title: "Пастбище",
     time: "05:40",
-    body: "Утренний выгон. Коровы выбирают траву сами\u00a0— это\u00a0формирует сложный профиль вкуса.",
+    body: "Утренний выгон. Коровы выбирают траву сами\u00a0— так рождается сложный профиль вкуса.",
     image: IMAGES.farmMist,
   },
   {
@@ -191,7 +194,7 @@ export const timelineSteps = [
     id: "lab",
     title: "Лаборатория",
     time: "08:15",
-    body: "Проверка на\u00a0чистоту, жирность и\u00a0органолептику. Брак не\u00a0покидает ферму.",
+    body: "Проверка на\u00a0чистоту, жирность и\u00a0вкус. Брак не\u00a0покидает ферму.",
     image: IMAGES.organic,
   },
   {
@@ -213,7 +216,7 @@ export const timelineSteps = [
 export const testimonials = [
   {
     name: "Анна К.",
-    role: "шеф-бариста, Atelier",
+    role: "шеф-бариста, кофейня «Ателье»",
     quote:
       "Пена держится минутами. Для\u00a0капучино это\u00a0уже не\u00a0молоко, а\u00a0инструмент.",
     image: IMAGES.craftAlt,

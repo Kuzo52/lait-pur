@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, Mail } from "lucide-react";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { navLinks, IMAGES } from "@/data/content";
+import { navLinks, IMAGES, BRAND } from "@/data/content";
 import { RevealImage } from "@/components/ui/RevealImage";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -59,7 +59,7 @@ export function SiteFooter() {
       <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <p className="font-display text-4xl text-[var(--graphite)] md:text-5xl">
-            Lait&nbsp;Pur
+            {BRAND}
           </p>
           <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--graphite)]/60">
             Подпишитесь на&nbsp;вечернюю рассылку: дегустации, сезонные партии
@@ -96,7 +96,7 @@ export function SiteFooter() {
             <button
               type="submit"
               disabled={status === "loading" || status === "success"}
-              className="h-12 rounded-[12px] bg-[var(--graphite)] px-6 text-sm font-medium text-[var(--milk)] transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-90 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-70"
+              className="h-12 rounded-[12px] bg-[var(--graphite)] px-6 text-sm font-medium text-[var(--milk)] transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-90 active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {status === "loading" ? "Отправляем…" : "Подписаться"}
             </button>
@@ -115,7 +115,7 @@ export function SiteFooter() {
             {status === "success" && (
               <span className="inline-flex items-center gap-1.5 text-[#5A7A8C]">
                 <Check className="size-3.5" strokeWidth={2} />
-                Готово. Добро пожаловать в&nbsp;круг Lait&nbsp;Pur.
+                Готово. Добро пожаловать в&nbsp;круг «{BRAND}».
               </span>
             )}
           </p>
@@ -149,20 +149,20 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-sm text-[var(--graphite)]/65">
               <li>
                 <a
-                  href="mailto:hello@laitpur.farm"
+                  href="mailto:hello@chistiy-lug.ru"
                   className="transition-colors hover:text-[var(--graphite)]"
                 >
-                  hello@laitpur.farm
+                  hello@chistiy-lug.ru
                 </a>
               </li>
               <li>
                 <a
-                  href="https://maps.google.com/?q=Normandie+France"
+                  href="https://maps.google.com/?q=Нормандия+Франция"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[var(--graphite)]"
                 >
-                  Normandie,&nbsp;France
+                  Нормандия,&nbsp;Франция
                 </a>
               </li>
               <li>
@@ -172,7 +172,7 @@ export function SiteFooter() {
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[var(--graphite)]"
                 >
-                  Instagram
+                  Инстаграм
                 </a>
               </li>
             </ul>
@@ -181,7 +181,7 @@ export function SiteFooter() {
       </div>
 
       <div className="relative z-10 mx-auto mt-16 flex max-w-7xl flex-col gap-3 border-t border-[var(--graphite)]/8 pt-6 text-xs text-[var(--graphite)]/40 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} Lait&nbsp;Pur. Все права защищены.</p>
+        <p>© {new Date().getFullYear()} {BRAND}. Все права защищены.</p>
         <div className="flex gap-5">
           <Link
             href="/privacy"

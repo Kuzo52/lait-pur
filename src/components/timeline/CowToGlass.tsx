@@ -41,7 +41,7 @@ export function CowToGlass() {
           transition={{ duration: 0.8, ease: EASE }}
         >
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--graphite)]/45 uppercase">
-            Cow-to-Glass
+            От коровы до стакана
           </p>
           <h2 className="font-display text-[clamp(2.2rem,4.4vw,3.5rem)] leading-[1.1] text-[var(--graphite)]">
             От&nbsp;фермы до&nbsp;стакана
