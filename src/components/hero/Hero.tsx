@@ -1,93 +1,82 @@
 "use client";
 
-import { MagneticButton } from "@/components/ui/MagneticButton";
-import { LiquidOrb } from "@/components/ui/LiquidOrb";
 import { ClientOnly } from "@/components/ui/ClientOnly";
 import { LetterReveal } from "@/components/hero/LetterReveal";
 import { BRAND } from "@/data/content";
-import { useProductTheme } from "@/context/ProductThemeContext";
 
 export function Hero() {
-  const { product } = useProductTheme();
-
   return (
     <section
       id="top"
       className="relative z-10 flex min-h-[100dvh] flex-col overflow-hidden pt-[max(5.5rem,env(safe-area-inset-top))]"
     >
-      {/* Мобилка: орб за текстом */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-[28%] z-0 flex justify-center opacity-40 md:hidden"
-        aria-hidden
-      >
-        <LiquidOrb accent={product.accent} className="scale-110" />
+      {/* Свежий фон hero */}
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,#ffffff_0%,transparent_55%)]" />
+        <div className="absolute -top-24 -left-20 h-[55vmax] w-[55vmax] rounded-full bg-[#E8F2F0]/70 blur-[90px]" />
+        <div className="absolute top-[20%] -right-24 h-[45vmax] w-[45vmax] rounded-full bg-[#F5EDE3]/80 blur-[100px]" />
+        <div className="absolute bottom-[-10%] left-[20%] h-[40vmax] w-[40vmax] rounded-full bg-[#EEF1F6]/65 blur-[80px]" />
+        <div
+          className="absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(28,28,26,0.07) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%)",
+          }}
+        />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-10 px-5 pb-28 md:grid-cols-[1.1fr_0.9fr] md:gap-8 md:px-8 md:pb-16 lg:px-10">
-        <div className="flex flex-col items-center text-center md:items-start md:text-left">
-          <p className="mb-3 text-[11px] font-medium tracking-[0.28em] text-[#1c1c1a]/40 uppercase">
-            Органика · Скандинавия
-          </p>
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-5 pb-28 text-center md:px-8 md:pb-16">
+        <p className="mb-4 text-[11px] font-medium tracking-[0.28em] text-[#1c1c1a]/40 uppercase">
+          Органика · Скандинавия
+        </p>
 
-          <p
-            className="font-display tracking-[0.16em] text-[#1c1c1a]"
-            style={{ fontSize: "clamp(3.2rem, 12vw, 7.5rem)" }}
+        <p
+          className="font-display tracking-[0.18em] text-[#1c1c1a]"
+          style={{ fontSize: "clamp(3.5rem, 14vw, 8rem)" }}
+        >
+          {BRAND}
+        </p>
+
+        <ClientOnly
+          fallback={
+            <h1 className="mt-3 max-w-[14ch] font-display text-[clamp(1.6rem,3.8vw,2.6rem)] leading-[1.15] tracking-wide text-[#1c1c1a]/85">
+              Молоко как система чистоты
+            </h1>
+          }
+        >
+          <LetterReveal
+            text="Молоко как система чистоты"
+            className="mt-3 max-w-[14ch] text-[clamp(1.6rem,3.8vw,2.6rem)] leading-[1.15] tracking-wide text-[#1c1c1a]/85"
+            as="h1"
+          />
+        </ClientOnly>
+
+        <p className="mt-5 max-w-md text-base leading-relaxed text-[#1c1c1a]/55 md:text-lg">
+          Точная линейка, стеклянный цикл и&nbsp;вкус северных пастбищ.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+          <a
+            href="#milk-bar"
+            className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide text-[#1c1c1a] transition-opacity hover:opacity-60"
           >
-            {BRAND}
-          </p>
-
-          <ClientOnly
-            fallback={
-              <h1 className="mt-2 max-w-[12ch] font-display text-[clamp(1.7rem,4vw,2.85rem)] leading-[1.1] tracking-wide text-[#1c1c1a]">
-                Молоко как система чистоты
-              </h1>
-            }
-          >
-            <LetterReveal
-              text="Молоко как система чистоты"
-              className="mt-2 max-w-[12ch] text-[clamp(1.7rem,4vw,2.85rem)] leading-[1.1] tracking-wide text-[#1c1c1a]"
-              as="h1"
-            />
-          </ClientOnly>
-
-          <p className="mt-5 max-w-md text-base leading-relaxed text-[#1c1c1a]/65 md:text-lg">
-            Точная линейка, стеклянный цикл и&nbsp;вкус северных пастбищ&nbsp;—
-            без визуального шума.
-          </p>
-
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3 md:justify-start">
-            <MagneticButton href="#milk-bar" className="text-base">
-              Выбрать вкус
-            </MagneticButton>
-            <a
-              href="#journey"
-              className="rounded-full border border-[#1c1c1a]/15 px-6 py-3.5 text-sm font-medium text-[#1c1c1a] transition-colors hover:bg-white/50"
+            Выбрать вкус
+            <span
+              aria-hidden
+              className="transition-transform duration-300 group-hover:translate-x-1"
             >
-              Смотреть путь
-            </a>
-          </div>
-
-          <dl className="mt-12 grid w-full max-w-md grid-cols-3 gap-3 border-t border-[#1c1c1a]/10 pt-8 text-left">
-            {[
-              { k: "12ч", v: "ферма → полка" },
-              { k: "4", v: "вкуса" },
-              { k: "0", v: "лишних добавок" },
-            ].map((item) => (
-              <div key={item.k} className="panel rounded-2xl px-3 py-3">
-                <dt className="font-display text-2xl text-[#1c1c1a]">{item.k}</dt>
-                <dd className="mt-1 text-[11px] leading-snug text-[#1c1c1a]/50">
-                  {item.v}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        <div className="relative z-10 mx-auto hidden w-full max-w-sm md:block">
-          <LiquidOrb accent={product.accent} />
-          <p className="mt-6 text-center text-xs tracking-[0.2em] text-[#1c1c1a]/35 uppercase">
-            {product.name}
-          </p>
+              →
+            </span>
+          </a>
+          <a
+            href="#journey"
+            className="text-sm font-medium tracking-wide text-[#1c1c1a]/45 transition-colors hover:text-[#1c1c1a]"
+          >
+            Смотреть путь
+          </a>
         </div>
       </div>
     </section>

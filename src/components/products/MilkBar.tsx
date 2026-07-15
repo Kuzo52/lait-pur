@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { products, type ProductId } from "@/data/content";
 import { useProductTheme } from "@/context/ProductThemeContext";
-import { LiquidOrb } from "@/components/ui/LiquidOrb";
 import { cn } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -113,8 +112,13 @@ export function MilkBar() {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="mx-auto hidden w-full max-w-[240px] md:block">
-                <LiquidOrb accent={product.accent} />
+              <div className="mx-auto hidden w-full max-w-[200px] md:block">
+                <div
+                  className="aspect-square rounded-full opacity-80 blur-2xl"
+                  style={{
+                    background: `radial-gradient(circle, ${product.accent}99, transparent 70%)`,
+                  }}
+                />
               </div>
             </div>
           </motion.div>

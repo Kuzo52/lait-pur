@@ -60,9 +60,9 @@ export function SiteHeader() {
 
           <a
             href="#milk-bar"
-            className="hidden rounded-full bg-black px-6 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-neutral-800 md:inline-flex"
+            className="hidden text-sm font-medium tracking-wide text-[#1c1c1a] transition-opacity hover:opacity-55 md:inline-flex"
           >
-            Купить
+            Выбрать вкус →
           </a>
         </div>
       </header>
@@ -119,9 +119,9 @@ export function SiteHeader() {
                 <a
                   href="#milk-bar"
                   onClick={() => setOpen(false)}
-                  className="mt-6 rounded-full bg-black px-5 py-4 text-center text-base font-medium text-white"
+                  className="mt-8 text-lg font-medium tracking-wide text-[#1c1c1a]"
                 >
-                  Купить
+                  Выбрать вкус →
                 </a>
               </nav>
             </motion.div>
