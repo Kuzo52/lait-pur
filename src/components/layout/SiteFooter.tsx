@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Mail } from "lucide-react";
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { navLinks } from "@/data/content";
 
@@ -171,18 +172,18 @@ export function SiteFooter() {
       <div className="relative z-10 mx-auto mt-16 flex max-w-7xl flex-col gap-3 border-t border-[var(--graphite)]/8 pt-6 text-xs text-[var(--graphite)]/40 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Lait&nbsp;Pur. Все права защищены.</p>
         <div className="flex gap-5">
-          <a
+          <Link
             href="/privacy"
             className="transition-colors hover:text-[var(--graphite)]/70"
           >
             Конфиденциальность
-          </a>
-          <a
+          </Link>
+          <Link
             href="/terms"
             className="transition-colors hover:text-[var(--graphite)]/70"
           >
             Условия
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
