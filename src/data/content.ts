@@ -15,35 +15,9 @@ export interface Product {
   accent: string;
   accentDeep: string;
   milk: string;
-  label: string;
-  image: string;
-  imageAlt: string;
+  glyph: string;
 }
 
-/**
- * Безармочные Unsplash-кадры (без логотипов Oatly / Alpro / Horizon и т.п.).
- * Проверены по описаниям: бутылка без этикетки, пастбище, чистый налив, эстетичный натюрморт.
- */
-export const IMAGES = {
-  heroBottle:
-    "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=1200&q=80",
-  farmMist:
-    "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80",
-  classicPour:
-    "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=80",
-  craftAlt:
-    "https://images.unsplash.com/photo-1678314609962-1028f2bce919?auto=format&fit=crop&w=1200&q=80",
-  almonds:
-    "https://images.unsplash.com/photo-1508061253366-f7da027a4ad0?auto=format&fit=crop&w=1200&q=80",
-  chocolate:
-    "https://images.unsplash.com/photo-1606312619070-d48b4d1f5873?auto=format&fit=crop&w=1200&q=80",
-  glassMorning:
-    "https://images.unsplash.com/photo-1628088062854-d1870b45533b?auto=format&fit=crop&w=1200&q=80",
-  organic:
-    "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
-} as const;
-
-/** Единственное имя бренда. */
 export const BRAND = "MŪNA";
 
 export const products: Product[] = [
@@ -52,47 +26,43 @@ export const products: Product[] = [
     name: "Классическое",
     tagline: "Цельное. Мягкое. Честное.",
     description:
-      "Молоко травяного откорма с\u00a0естественной жирностью 3,5%. Без\u00a0гомогенизации\u00a0— та\u00a0самая сливочная текстура северных ферм.",
+      "Молоко травяного откорма с\u00a0естественной жирностью 3,5%. Сливочная текстура без\u00a0лишней обработки.",
     volume: "750\u00a0мл",
     calories: "64\u00a0ккал",
     protein: "3,4\u00a0г",
-    tasting: "свежие сливки, луговые цветы",
+    tasting: "сливки, луговые цветы",
     bg: "#F3EFE9",
     bgSoft: "#FAF8F5",
-    hoverTint: "#F3EFE9",
+    hoverTint: "#F0EBE3",
     accent: "#C9B8A0",
     accentDeep: "#7A6A55",
     milk: "#FFFDF8",
-    label: "#FAF8F5",
-    image: IMAGES.classicPour,
-    imageAlt: "Чистый налив молока без логотипов",
+    glyph: "01",
   },
   {
     id: "oat",
     name: "Овсяное",
     tagline: "Бархатная пена в\u00a0каждой чашке.",
     description:
-      "Органический овёс северных полей. Плотная микропена и\u00a0лёгкая злаковая сладость\u00a0— для\u00a0идеального латте.",
+      "Органический овёс северных полей. Плотная микропена и\u00a0лёгкая злаковая сладость.",
     volume: "750\u00a0мл",
     calories: "48\u00a0ккал",
     protein: "1,2\u00a0г",
     tasting: "тосты, ваниль, мёд",
     bg: "#EAE4D9",
     bgSoft: "#F7F3EC",
-    hoverTint: "#EAE4D9",
+    hoverTint: "#E8E1D4",
     accent: "#C4B28A",
     accentDeep: "#8A7550",
     milk: "#FBF6EA",
-    label: "#F5EDE0",
-    image: IMAGES.craftAlt,
-    imageAlt: "Эстетичный натюрморт с молоком",
+    glyph: "02",
   },
   {
     id: "almond",
     name: "Миндальное",
     tagline: "Лёгкость с\u00a0ореховым характером.",
     description:
-      "Миндаль холодного отжима. Тонкий ореховый привкус без\u00a0лишней сладости и\u00a0добавок.",
+      "Миндаль холодного отжима. Тонкий ореховый привкус без\u00a0лишней сладости.",
     volume: "750\u00a0мл",
     calories: "39\u00a0ккал",
     protein: "1,5\u00a0г",
@@ -103,16 +73,14 @@ export const products: Product[] = [
     accent: "#D4A99A",
     accentDeep: "#8C6B52",
     milk: "#FFF8F1",
-    label: "#F3E8DC",
-    image: IMAGES.almonds,
-    imageAlt: "Миндаль и натуральные ингредиенты",
+    glyph: "03",
   },
   {
     id: "chocolate",
     name: "Шоколадное",
     tagline: "Настоящее какао. Без\u00a0сиропов.",
     description:
-      "Какао одного урожая и\u00a0наше классическое молоко. Знакомый вкус\u00a0— чистый состав.",
+      "Какао одного урожая и\u00a0классическое молоко. Знакомый вкус\u00a0— чистый состав.",
     volume: "750\u00a0мл",
     calories: "72\u00a0ккал",
     protein: "3,1\u00a0г",
@@ -123,9 +91,7 @@ export const products: Product[] = [
     accent: "#A07858",
     accentDeep: "#5C3D28",
     milk: "#F2E4D4",
-    label: "#E8D4C0",
-    image: IMAGES.chocolate,
-    imageAlt: "Какао и шоколад без товарных знаков",
+    glyph: "04",
   },
 ];
 
@@ -140,42 +106,38 @@ export const storyTiles = [
   {
     id: "cows",
     title: "Счастливые коровы",
-    eyebrow: "Ферма №\u00a014",
-    body: "Стадо гуляет на\u00a0пастбище 300\u00a0дней в\u00a0году. Свежий воздух, трава и\u00a0тишина\u00a0— основа вкуса MŪNA.",
-    span: "lg:col-span-2 lg:row-span-2",
-    accent: "sage",
-    image: IMAGES.farmMist,
-    imageAlt: "Альпийские луга в утреннем тумане",
+    eyebrow: "Ферма\u00a014",
+    body: "300 дней на\u00a0пастбище. Тишина и\u00a0трава\u00a0— основа вкуса.",
+    span: "md:col-span-2",
+    metric: "300",
+    metricLabel: "дней на лугу",
   },
   {
     id: "organic",
-    title: "100%\u00a0органика",
-    eyebrow: "Европейский стандарт",
-    body: "Без\u00a0гормонов, антибиотиков и\u00a0ГМО. Только сертифицированное сырьё.",
-    span: "lg:col-span-1 lg:row-span-1",
-    accent: "sky",
-    image: IMAGES.organic,
-    imageAlt: "Свежая органика без упаковочных брендов",
+    title: "Органика",
+    eyebrow: "Сертификат",
+    body: "Без гормонов, антибиотиков и\u00a0ГМО.",
+    span: "md:col-span-1",
+    metric: "100%",
+    metricLabel: "чистота состава",
   },
   {
     id: "packaging",
-    title: "Эко-упаковка",
-    eyebrow: "Замкнутый цикл",
-    body: "Стекло и\u00a0бумага из\u00a0восстановленных лесов. Бутылка возвращается в\u00a0оборот.",
-    span: "lg:col-span-1 lg:row-span-1",
-    accent: "cream",
-    image: IMAGES.heroBottle,
-    imageAlt: "Стеклянная бутылка без логотипов",
+    title: "Эко-цикл",
+    eyebrow: "Стекло",
+    body: "Бутылка возвращается в\u00a0оборот. Бумага из\u00a0восстановленных лесов.",
+    span: "md:col-span-1",
+    metric: "∞",
+    metricLabel: "замкнутый цикл",
   },
   {
     id: "craft",
     title: "Малая партия",
     eyebrow: "Каждое утро",
-    body: "Пастеризация при\u00a0бережной температуре. Молоко покидает ферму в\u00a0течение 12\u00a0часов.",
-    span: "lg:col-span-2 lg:row-span-1",
-    accent: "graphite",
-    image: IMAGES.glassMorning,
-    imageAlt: "Свежее молоко утром",
+    body: "Пастеризация бережно. С фермы\u00a0— за\u00a012\u00a0часов.",
+    span: "md:col-span-2",
+    metric: "12ч",
+    metricLabel: "до отгрузки",
   },
 ] as const;
 
@@ -184,52 +146,45 @@ export const timelineSteps = [
     id: "pasture",
     title: "Пастбище",
     time: "05:40",
-    body: "Утренний выгон. Коровы выбирают траву сами\u00a0— так рождается сложный профиль вкуса.",
-    image: IMAGES.farmMist,
+    body: "Утренний выгон. Коровы выбирают траву сами.",
   },
   {
     id: "milking",
     title: "Доение",
     time: "06:30",
-    body: "Тихая доильная линия без\u00a0стресса. Каждая порция отмечается по\u00a0партии.",
-    image: IMAGES.glassMorning,
+    body: "Тихая линия без\u00a0стресса. Каждая партия отмечена.",
   },
   {
     id: "lab",
     title: "Лаборатория",
     time: "08:15",
-    body: "Проверка на\u00a0чистоту, жирность и\u00a0вкус. Брак не\u00a0покидает ферму.",
-    image: IMAGES.organic,
+    body: "Чистота, жирность, вкус. Брак не\u00a0уезжает.",
   },
   {
     id: "bottle",
     title: "Розлив",
     time: "10:00",
-    body: "Стекло стерилизуется паром. Молоко разливается в\u00a0холодной линии.",
-    image: IMAGES.heroBottle,
+    body: "Стекло и\u00a0холодная линия. Точная геометрия упаковки.",
   },
   {
     id: "glass",
     title: "В\u00a0ваш стакан",
     time: "День\u00a00",
-    body: "Доставка в\u00a0течение суток. Открываете\u00a0— и\u00a0чувствуете ферму без\u00a0посредников.",
-    image: IMAGES.classicPour,
+    body: "Доставка за\u00a0сутки. Ферма без\u00a0посредников.",
   },
 ] as const;
 
 export const testimonials = [
   {
     name: "Анна К.",
-    role: "шеф-бариста, кофейня «Ателье»",
+    role: "шеф-бариста",
     quote:
-      "Пена держится минутами. Для\u00a0капучино это\u00a0уже не\u00a0молоко, а\u00a0инструмент.",
-    image: IMAGES.craftAlt,
+      "Пена держится минутами. Для\u00a0капучино это\u00a0уже инструмент.",
   },
   {
     name: "Марк Л.",
     role: "сомелье вкуса",
     quote:
-      "В\u00a0классике слышны луговые ноты. Редко встречаю молоко с\u00a0таким чистым финишем.",
-    image: IMAGES.classicPour,
+      "В\u00a0классике слышны луговые ноты. Чистый финиш\u00a0— редкость.",
   },
 ] as const;
