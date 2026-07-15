@@ -33,7 +33,7 @@ export function StoryBento() {
             Ферма, где вкус начинается с&nbsp;тишины
           </h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[var(--graphite)]/60">
-            Три принципа «Чистого Луга»: спокойные животные, чистая органика
+            Три принципа MŪNA: спокойные животные, чистая органика
             и&nbsp;упаковка без&nbsp;послевкусия в&nbsp;земле.
           </p>
         </motion.div>
@@ -54,8 +54,8 @@ export function StoryBento() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08, duration: 0.7, ease: EASE }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                whileTap={{ scale: 0.96 }}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <RevealImage
                   src={tile.image}
@@ -65,7 +65,6 @@ export function StoryBento() {
                     isHero ? "opacity-100" : "opacity-90",
                   )}
                   imgClassName="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
                 />
                 <div
                   className={cn(

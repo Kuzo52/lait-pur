@@ -36,29 +36,29 @@ export function SiteFooter() {
   return (
     <footer
       id="subscribe"
-      className="relative scroll-mt-24 overflow-hidden border-t border-[var(--graphite)]/8 px-5 pt-20 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:px-8 lg:px-10"
+      className="relative scroll-mt-24 overflow-hidden border-t border-[var(--graphite)]/8 px-5 pt-20 pb-[max(6rem,calc(5rem+env(safe-area-inset-bottom)))] md:px-8 md:pb-[max(2.5rem,env(safe-area-inset-bottom))] lg:px-10"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-56 overflow-hidden opacity-40">
         <RevealImage
           src={IMAGES.farmMist}
           alt=""
-          className="absolute inset-0"
-          sizes="100vw"
+          className="absolute inset-0 !rounded-none"
+          imgClassName="!rounded-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#FAF9F6]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#FAF8F5]" />
       </div>
 
       <div
         className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 50% 40% at 70% 80%, rgba(184,212,232,0.35), transparent 60%)",
+            "radial-gradient(ellipse 50% 40% at 70% 80%, rgba(230,236,237,0.55), transparent 60%)",
         }}
       />
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <p className="font-display text-4xl text-[var(--graphite)] md:text-5xl">
+          <p className="font-display text-4xl tracking-[0.12em] text-[var(--graphite)] md:text-5xl">
             {BRAND}
           </p>
           <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--graphite)]/60">
@@ -90,23 +90,21 @@ export function SiteFooter() {
                 }}
                 placeholder="ваш@email.com"
                 disabled={status === "loading" || status === "success"}
-                className="h-12 w-full rounded-[12px] border border-[var(--graphite)]/10 bg-white/55 pr-4 pl-10 text-sm text-[var(--graphite)] outline-none backdrop-blur-sm transition-[border-color,box-shadow] placeholder:text-[var(--graphite)]/35 focus:border-[var(--graphite)]/25 focus:shadow-[0_0_0_4px_rgba(28,28,26,0.04)] disabled:opacity-60"
+                className="h-12 w-full rounded-[12px] border border-white/70 bg-white/45 pr-4 pl-10 text-sm text-[var(--graphite)] outline-none backdrop-blur-xl transition-[border-color,box-shadow] placeholder:text-[var(--graphite)]/35 focus:border-[var(--graphite)]/25 focus:shadow-[0_0_0_4px_rgba(28,28,26,0.04)] disabled:opacity-60"
               />
             </div>
-            <button
+            <motion.button
               type="submit"
               disabled={status === "loading" || status === "success"}
-              className="h-12 rounded-[12px] bg-[var(--graphite)] px-6 text-sm font-medium text-[var(--milk)] transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-90 active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-70"
+              className="h-12 rounded-[12px] bg-[var(--graphite)] px-6 text-sm font-medium text-[var(--milk)] disabled:cursor-not-allowed disabled:opacity-70"
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.95 }}
             >
               {status === "loading" ? "Отправляем…" : "Подписаться"}
-            </button>
+            </motion.button>
           </form>
 
-          <p
-            className="mt-3 min-h-5 text-sm"
-            role="status"
-            aria-live="polite"
-          >
+          <p className="mt-3 min-h-5 text-sm" role="status" aria-live="polite">
             {status === "error" && (
               <span className="text-[#8C5A4A]">
                 Проверьте адрес&nbsp;— кажется, опечатка.
@@ -115,7 +113,7 @@ export function SiteFooter() {
             {status === "success" && (
               <span className="inline-flex items-center gap-1.5 text-[#5A7A8C]">
                 <Check className="size-3.5" strokeWidth={2} />
-                Готово. Добро пожаловать в&nbsp;круг «{BRAND}».
+                Готово. Добро пожаловать в&nbsp;круг {BRAND}.
               </span>
             )}
           </p>
@@ -131,12 +129,14 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <motion.a
                     href={link.href}
                     className="text-sm text-[var(--graphite)]/65 transition-colors hover:text-[var(--graphite)]"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {link.label}
-                  </a>
+                  </motion.a>
                 </li>
               ))}
             </ul>
@@ -149,20 +149,20 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-sm text-[var(--graphite)]/65">
               <li>
                 <a
-                  href="mailto:hello@chistiy-lug.ru"
+                  href="mailto:hello@muna.farm"
                   className="transition-colors hover:text-[var(--graphite)]"
                 >
-                  hello@chistiy-lug.ru
+                  hello@muna.farm
                 </a>
               </li>
               <li>
                 <a
-                  href="https://maps.google.com/?q=Нормандия+Франция"
+                  href="https://maps.google.com/?q=Skåne+Sweden"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors hover:text-[var(--graphite)]"
                 >
-                  Нормандия,&nbsp;Франция
+                  Сконе,&nbsp;Швеция
                 </a>
               </li>
               <li>
@@ -181,7 +181,9 @@ export function SiteFooter() {
       </div>
 
       <div className="relative z-10 mx-auto mt-16 flex max-w-7xl flex-col gap-3 border-t border-[var(--graphite)]/8 pt-6 text-xs text-[var(--graphite)]/40 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} {BRAND}. Все права защищены.</p>
+        <p>
+          © {new Date().getFullYear()} {BRAND}. Все права защищены.
+        </p>
         <div className="flex gap-5">
           <Link
             href="/privacy"
@@ -205,26 +207,23 @@ function PourAnimation({ active }: { active: boolean }) {
   return (
     <div className="relative mt-10 h-36 w-28" aria-hidden>
       <AnimatePresence>
-        {active && (
-          <>
-            {[0, 1, 2, 3, 4].map((i) => (
-              <motion.span
-                key={`drop-${i}`}
-                className="absolute left-1/2 size-2 -translate-x-1/2 rounded-full bg-[#FFFDF8] shadow-[0_0_8px_rgba(255,253,248,0.9)]"
-                initial={{ top: 0, opacity: 0, scale: 0.6 }}
-                animate={{ top: [0, 72], opacity: [0, 1, 0], scale: [0.6, 1, 0.8] }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  duration: 0.9,
-                  delay: i * 0.12,
-                  repeat: 2,
-                  ease: EASE,
-                }}
-                style={{ marginLeft: (i - 2) * 5 }}
-              />
-            ))}
-          </>
-        )}
+        {active &&
+          [0, 1, 2, 3, 4].map((i) => (
+            <motion.span
+              key={`drop-${i}`}
+              className="absolute left-1/2 size-2 -translate-x-1/2 rounded-full bg-[#FFFDF8] shadow-[0_0_8px_rgba(255,253,248,0.9)]"
+              initial={{ top: 0, opacity: 0, scale: 0.6 }}
+              animate={{ top: [0, 72], opacity: [0, 1, 0], scale: [0.6, 1, 0.8] }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.9,
+                delay: i * 0.12,
+                repeat: 2,
+                ease: EASE,
+              }}
+              style={{ marginLeft: (i - 2) * 5 }}
+            />
+          ))}
       </AnimatePresence>
 
       <div className="absolute bottom-0 left-1/2 h-24 w-20 -translate-x-1/2 overflow-hidden rounded-b-[28px] rounded-t-[6px] border border-white/70 bg-white/30 backdrop-blur-[2px]">

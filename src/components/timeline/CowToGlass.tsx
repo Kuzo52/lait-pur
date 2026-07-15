@@ -129,7 +129,6 @@ function TimelineItem({
             src={image}
             alt={title}
             className="aspect-[16/10] w-full"
-            sizes="40vw"
           />
           <div className="p-5 text-left">
             <p className="text-xs tracking-[0.18em] text-[var(--graphite)]/40 uppercase">
@@ -159,7 +158,6 @@ function TimelineItem({
           src={image}
           alt={title}
           className="aspect-[16/10] w-full"
-          sizes="100vw"
         />
         <div className="p-5">
           <p className="text-xs tracking-[0.18em] text-[var(--graphite)]/40 uppercase">

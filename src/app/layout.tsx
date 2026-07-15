@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
-  subsets: ["latin", "latin-ext", "cyrillic"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+/** Кириллический фолбэк: Plus Jakarta Sans не содержит кириллицу в Next Fonts. */
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "cyrillic"],
   display: "swap",
 });
 
@@ -16,11 +23,11 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Чистый Луг — органическое молоко с нормандских пастбищ",
+  title: "MŪNA — премиальное органическое молоко",
   description:
-    "Премиальная линейка органического молока «Чистый Луг»: классическое, овсяное, миндальное и шоколадное. От фермы до стакана.",
+    "MŪNA — скандинавская органическая молочная линейка: классическое, овсяное, миндальное и шоколадное. От фермы до стакана.",
   openGraph: {
-    title: "Чистый Луг",
+    title: "MŪNA",
     description: "Молоко, которое чувствуешь.",
     locale: "ru_RU",
     type: "website",
@@ -35,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${jakarta.variable} ${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>

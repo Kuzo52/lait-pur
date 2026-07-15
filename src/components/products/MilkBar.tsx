@@ -51,8 +51,8 @@ export function MilkBar() {
                     active && "ring-1 ring-[var(--graphite)]/15 shadow-xl",
                   )}
                   style={{ backgroundColor: active ? item.hoverTint : undefined }}
-                  whileHover={{ y: -4 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.95 }}
                   onHoverStart={() => setProductId(item.id as ProductId)}
                 >
                   <motion.div
@@ -66,7 +66,6 @@ export function MilkBar() {
                         alt={item.imageAlt}
                         className="absolute inset-0"
                         imgClassName="transition-transform duration-700 group-hover:scale-110"
-                        sizes="(max-width: 768px) 78vw, 25vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
                       <span
@@ -149,7 +148,6 @@ export function MilkBar() {
                     src={product.image}
                     alt={product.imageAlt}
                     className="absolute inset-0"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/5" />
                 </motion.div>

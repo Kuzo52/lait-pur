@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -12,7 +11,6 @@ interface RevealImageProps {
   className?: string;
   imgClassName?: string;
   priority?: boolean;
-  sizes?: string;
 }
 
 export function RevealImage({
@@ -21,23 +19,23 @@ export function RevealImage({
   className,
   imgClassName,
   priority = false,
-  sizes = "(max-width: 768px) 100vw, 50vw",
 }: RevealImageProps) {
   return (
     <motion.div
-      className={cn("img-shine relative overflow-hidden", className)}
+      className={cn("img-shine relative overflow-hidden rounded-3xl", className)}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.85, ease: EASE }}
     >
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={src}
         alt={alt}
-        fill
-        priority={priority}
-        sizes={sizes}
-        className={cn("object-cover", imgClassName)}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "auto"}
+        className={cn("h-full w-full object-cover rounded-3xl", imgClassName)}
       />
     </motion.div>
   );

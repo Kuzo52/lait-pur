@@ -49,9 +49,10 @@ export function MagneticButton({
       style={{ x, y }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      whileTap={{ scale: 0.96 }}
+      whileHover={{ y: -3 }}
+      whileTap={{ scale: 0.95 }}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[14px] bg-[var(--graphite)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--milk)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[14px] bg-[var(--graphite)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--milk)]",
         className,
       )}
     >
@@ -61,7 +62,7 @@ export function MagneticButton({
           background: `radial-gradient(120px circle at ${glowX} 50%, rgba(255,255,255,0.22), transparent 55%)`,
         }}
       />
-      <span className="absolute inset-0 translate-y-[105%] bg-gradient-to-r from-[#5A7A8C] to-[#7FA892] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+      <span className="absolute inset-0 translate-y-[105%] bg-gradient-to-r from-[#7A6A55] to-[#A8B5A3] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
       <span className="relative z-10 inline-flex items-center gap-2">
         {children}
       </span>

@@ -47,15 +47,14 @@ function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ delay: i * 0.1, duration: 0.7, ease: EASE }}
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.96 }}
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.95 }}
           >
             <div className="relative h-44 overflow-hidden">
               <RevealImage
                 src={item.image}
                 alt=""
                 className="absolute inset-0"
-                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] to-transparent" />
             </div>
