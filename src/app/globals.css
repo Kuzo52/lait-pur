@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --milk: #faf8f5;
-  --cream: #f3efe9;
+  --milk: #f7f4ef;
+  --cream: #efe8de;
+  --sage: #e4ece7;
+  --mist: #e6ebf0;
+  --stone: #ebe7e0;
+  --sand: #f0e8dc;
   --line: rgba(28, 28, 26, 0.08);
   --graphite: #1c1c1a;
   --accent: #8a9a8e;
@@ -41,7 +45,7 @@ html {
 }
 
 body {
-  background: #faf8f5;
+  background: #f4f1eb;
   color: var(--graphite);
   font-family: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui,
     sans-serif;
@@ -58,21 +62,55 @@ h3 {
   letter-spacing: 0.03em;
 }
 
-/* Свежий молочный свет + тонкая точка-сетка */
+/* Нейтральная база — цвет дают секции */
 .tech-surface {
-  background-color: #f7f5f1;
-  background-image:
-    radial-gradient(ellipse 90% 55% at 50% -5%, #ffffff 0%, transparent 58%),
-    radial-gradient(ellipse 50% 40% at 85% 25%, rgba(232, 242, 240, 0.7), transparent 55%),
-    radial-gradient(ellipse 45% 35% at 10% 70%, rgba(245, 237, 227, 0.55), transparent 50%);
+  background-color: #f4f1eb;
+}
+
+/* Ритм фонов: холод → тепло → холод, чтобы глаз не уставал */
+.surface-hero {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%, #ffffff 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 88% 30%, rgba(216, 230, 226, 0.85), transparent 60%),
+    linear-gradient(180deg, #f8f6f2 0%, #eef3f1 100%);
+}
+
+.surface-sage {
+  background:
+    radial-gradient(ellipse 70% 50% at 12% 20%, rgba(255, 255, 255, 0.55), transparent 55%),
+    linear-gradient(180deg, #e4ece7 0%, #dfe8e3 100%);
+}
+
+.surface-chalk {
+  background:
+    radial-gradient(ellipse 60% 45% at 90% 10%, rgba(255, 250, 244, 0.7), transparent 55%),
+    linear-gradient(180deg, #f3ebe2 0%, #ebe2d6 100%);
+}
+
+.surface-mist {
+  background:
+    radial-gradient(ellipse 65% 50% at 20% 80%, rgba(255, 255, 255, 0.45), transparent 50%),
+    linear-gradient(180deg, #e6ebf0 0%, #dde4eb 100%);
+}
+
+.surface-stone {
+  background:
+    radial-gradient(ellipse 55% 40% at 80% 30%, rgba(255, 255, 255, 0.4), transparent 55%),
+    linear-gradient(180deg, #ebe7e0 0%, #e3ddd4 100%);
+}
+
+.surface-sand {
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 0%, rgba(255, 252, 246, 0.6), transparent 50%),
+    linear-gradient(180deg, #efe4d4 0%, #e7dccb 100%);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(120, 110, 90, 0.06);
+  box-shadow: 0 8px 32px rgba(80, 75, 65, 0.07);
 }
 
 .panel {

@@ -31,28 +31,26 @@ export function Hero() {
     <section
       id="top"
       onMouseMove={onMove}
-      className="relative z-10 flex min-h-[100dvh] flex-col overflow-hidden pt-[max(5.5rem,env(safe-area-inset-top))]"
+      className="surface-hero relative z-10 flex min-h-[100dvh] flex-col overflow-hidden pt-[max(5.5rem,env(safe-area-inset-top))]"
     >
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_50%_-8%,#ffffff_0%,transparent_58%)]" />
-        <div className="absolute -top-28 -left-16 h-[50vmax] w-[50vmax] rounded-full bg-[#E8F2F0]/75 blur-[100px]" />
-        <div className="absolute top-[18%] -right-28 h-[42vmax] w-[42vmax] rounded-full bg-[#F5EDE3]/70 blur-[110px]" />
-        <div className="absolute bottom-[-15%] left-[25%] h-[38vmax] w-[38vmax] rounded-full bg-[#EEF1F6]/60 blur-[90px]" />
+        <div className="absolute -top-28 -left-16 h-[48vmax] w-[48vmax] rounded-full bg-[#C9DCD6]/55 blur-[110px]" />
+        <div className="absolute top-[22%] -right-24 h-[40vmax] w-[40vmax] rounded-full bg-[#E8D9C8]/50 blur-[120px]" />
         <ClientOnly>
-          <motion.div className="absolute inset-0 opacity-90" style={{ background: glow }} />
+          <motion.div className="absolute inset-0 opacity-80" style={{ background: glow }} />
         </ClientOnly>
         <div
-          className="absolute inset-0 opacity-[0.28]"
+          className="absolute inset-0 opacity-[0.22]"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(28,28,26,0.08) 1px, transparent 1px)",
-            backgroundSize: "26px 26px",
+              "radial-gradient(rgba(28,28,26,0.1) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
             maskImage:
-              "radial-gradient(ellipse 65% 55% at 45% 35%, black 10%, transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 40% 35%, black 8%, transparent 72%)",
           }}
         />
         <p
-          className="absolute top-[18%] right-[6%] hidden font-display text-[clamp(5rem,14vw,9rem)] leading-none text-[#1c1c1a]/[0.04] select-none md:block"
+          className="absolute top-[18%] right-[6%] hidden font-display text-[clamp(5rem,14vw,9rem)] leading-none text-[#1c1c1a]/[0.05] select-none md:block"
           aria-hidden
         >
           01

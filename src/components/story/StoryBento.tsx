@@ -9,7 +9,10 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export function StoryBento() {
   return (
-    <section id="story" className="relative z-10 scroll-mt-24 px-5 py-20 md:px-8 lg:px-10">
+    <section
+      id="story"
+      className="surface-chalk relative z-10 scroll-mt-24 px-5 py-20 md:px-8 lg:px-10"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl">
           <p className="mb-3 text-[11px] font-medium tracking-[0.22em] text-[#1c1c1a]/40 uppercase">

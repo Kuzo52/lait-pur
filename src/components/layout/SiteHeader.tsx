@@ -33,7 +33,7 @@ export function SiteHeader() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
           elevated
-            ? "border-b border-black/5 bg-[#FAF8F5]/80 backdrop-blur-xl"
+            ? "border-b border-black/5 bg-[#F4F1EB]/82 backdrop-blur-xl"
             : "border-b border-transparent bg-transparent",
         )}
       >
@@ -96,7 +96,7 @@ export function SiteHeader() {
           {open && (
             <motion.div
               id="mobile-nav"
-              className="fixed inset-0 z-[55] flex flex-col bg-[#FAF8F5]/90 backdrop-blur-lg md:hidden"
+              className="fixed inset-0 z-[55] flex flex-col bg-[#F4F1EB]/92 backdrop-blur-lg md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

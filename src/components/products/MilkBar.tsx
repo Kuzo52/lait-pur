@@ -11,9 +11,11 @@ export function MilkBar() {
   const { product, setProductId } = useProductTheme();
 
   return (
-    <section
+    <motion.section
       id="milk-bar"
       className="relative z-10 scroll-mt-24 overflow-hidden py-20 md:px-8 lg:px-10"
+      animate={{ backgroundColor: product.bg }}
+      transition={{ duration: 0.7, ease: EASE }}
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-2xl px-5 md:px-0">
@@ -125,6 +127,6 @@ export function MilkBar() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

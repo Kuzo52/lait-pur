@@ -8,7 +8,6 @@ import { StoryBento } from "@/components/story/StoryBento";
 import { MilkBar } from "@/components/products/MilkBar";
 import { CowToGlass } from "@/components/timeline/CowToGlass";
 import { AppProviders, ThemeCanvas } from "@/components/providers/AppProviders";
-import { FloatingBlobs } from "@/components/ui/FloatingBlobs";
 import { testimonials } from "@/data/content";
 import { motion } from "framer-motion";
 import { ClientOnly } from "@/components/ui/ClientOnly";
@@ -19,7 +18,6 @@ export function HomePage() {
   return (
     <AppProviders>
       <ThemeCanvas>
-        <FloatingBlobs />
         <div className="relative z-10 flex min-h-[100dvh] flex-col tech-surface">
           <SiteHeader />
           <main className="relative z-10 flex-1 bg-transparent">
@@ -39,7 +37,7 @@ export function HomePage() {
 
 function Testimonials() {
   return (
-    <section className="relative z-10 px-5 py-16 md:px-8 lg:px-10">
+    <section className="surface-stone relative z-10 px-5 py-16 md:px-8 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2">
         {testimonials.map((item, i) => (
           <ClientOnly

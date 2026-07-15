@@ -10,7 +10,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative z-10 scroll-mt-24 px-5 py-20 md:px-8 lg:px-10"
+      className="surface-sage relative z-10 scroll-mt-24 px-5 py-20 md:px-8 lg:px-10"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">

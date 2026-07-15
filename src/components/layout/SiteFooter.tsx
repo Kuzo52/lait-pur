@@ -34,7 +34,7 @@ export function SiteFooter() {
   return (
     <footer
       id="subscribe"
-      className="relative z-10 scroll-mt-24 border-t border-[#1c1c1a]/8 px-5 pt-16 pb-[max(6rem,calc(5rem+env(safe-area-inset-bottom)))] md:px-8 md:pb-10 lg:px-10"
+      className="surface-sand relative z-10 scroll-mt-24 border-t border-[#1c1c1a]/8 px-5 pt-16 pb-[max(6rem,calc(5rem+env(safe-area-inset-bottom)))] md:px-8 md:pb-10 lg:px-10"
     >
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_0.8fr]">
         <div>

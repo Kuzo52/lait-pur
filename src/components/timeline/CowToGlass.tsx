@@ -29,7 +29,7 @@ export function CowToGlass() {
     <section
       id="journey"
       ref={ref}
-      className="relative z-10 scroll-mt-24 px-5 py-20 md:px-8 lg:px-10"
+      className="surface-mist relative z-10 scroll-mt-24 px-5 py-20 md:px-8 lg:px-10"
     >
       <div className="mx-auto max-w-3xl">
         <div className="mb-14 max-w-xl">
@@ -117,7 +117,7 @@ function TimelineItem({
       </div>
 
       <div className="relative z-10 flex w-8 shrink-0 justify-center md:absolute md:left-1/2 md:-translate-x-1/2">
-        <span className="mt-1 flex size-8 items-center justify-center rounded-full border border-white bg-[#FAF8F5] shadow-sm">
+        <span className="mt-1 flex size-8 items-center justify-center rounded-full border border-white/90 bg-white/80 shadow-sm">
           <span className="size-2 rounded-full bg-[#1c1c1a]" />
         </span>
       </div>
