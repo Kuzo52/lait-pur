@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, Mail } from "lucide-react";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { navLinks } from "@/data/content";
+import { navLinks, IMAGES } from "@/data/content";
+import { RevealImage } from "@/components/ui/RevealImage";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -37,8 +38,18 @@ export function SiteFooter() {
       id="subscribe"
       className="relative scroll-mt-24 overflow-hidden border-t border-[var(--graphite)]/8 px-5 pt-20 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:px-8 lg:px-10"
     >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-56 overflow-hidden opacity-40">
+        <RevealImage
+          src={IMAGES.farmMist}
+          alt=""
+          className="absolute inset-0"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#FAF9F6]" />
+      </div>
+
       <div
-        className="pointer-events-none absolute inset-0 opacity-60"
+        className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           background:
             "radial-gradient(ellipse 50% 40% at 70% 80%, rgba(184,212,232,0.35), transparent 60%)",

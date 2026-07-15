@@ -14,7 +14,7 @@ export function ThemeCanvas({ children }: { children: ReactNode }) {
   return (
     <motion.div
       className="relative min-h-full flex-1"
-      animate={{ backgroundColor: product.bg }}
+      animate={{ backgroundColor: product.bgSoft }}
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       style={{
         ["--accent" as string]: product.accent,
@@ -22,13 +22,6 @@ export function ThemeCanvas({ children }: { children: ReactNode }) {
         ["--bg-soft" as string]: product.bgSoft,
       }}
     >
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        animate={{
-          background: `radial-gradient(ellipse 70% 50% at 50% 0%, ${product.bgSoft}, transparent 70%)`,
-        }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      />
       <div className="relative z-10 flex min-h-full flex-col">{children}</div>
     </motion.div>
   );

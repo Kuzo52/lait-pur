@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { products, type ProductId } from "@/data/content";
 import { useProductTheme } from "@/context/ProductThemeContext";
+import { RevealImage } from "@/components/ui/RevealImage";
 import { cn } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -26,178 +27,131 @@ export function MilkBar() {
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--graphite)]/45 uppercase">
             The Milk Bar
           </p>
-          <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight text-[var(--graphite)]">
+          <h2 className="font-display text-[clamp(2.2rem,4.4vw,3.5rem)] leading-[1.1] text-[var(--graphite)]">
             Четыре характера. Одна&nbsp;ферма.
           </h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[var(--graphite)]/60">
-            Переключайте вкус&nbsp;— фон мягко меняет оттенок упаковки. Выберите
-            свой ритуал утра.
+            Наведите на&nbsp;вкус&nbsp;— карточка окрашивается в&nbsp;пастельный
+            оттенок упаковки. Выберите свой ритуал утра.
           </p>
         </motion.div>
 
-        <div
-          role="tablist"
-          aria-label="Линейка вкусов"
-          className="mb-12 flex flex-wrap gap-2"
-        >
+        <div className="mb-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {products.map((item) => {
             const active = item.id === product.id;
             return (
-              <button
+              <motion.button
                 key={item.id}
-                role="tab"
                 type="button"
-                aria-selected={active}
                 onClick={() => setProductId(item.id as ProductId)}
                 className={cn(
-                  "relative rounded-[12px] px-5 py-2.5 text-sm font-medium transition-[color,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97]",
-                  active
-                    ? "text-[var(--graphite)]"
-                    : "text-[var(--graphite)]/50 hover:text-[var(--graphite)]/80",
+                  "group glass-card relative overflow-hidden rounded-[22px] p-3 text-left transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.98]",
+                  active && "ring-1 ring-[var(--graphite)]/15 shadow-xl",
                 )}
+                style={{ backgroundColor: active ? item.hoverTint : undefined }}
+                whileHover={{ y: -4 }}
+                onHoverStart={() => setProductId(item.id as ProductId)}
               >
-                {active && (
-                  <motion.span
-                    layoutId="milk-tab"
-                    className="absolute inset-0 rounded-[12px] border border-[var(--graphite)]/10 bg-white/55 shadow-[0_8px_30px_rgba(28,28,26,0.06)] backdrop-blur-sm"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-2">
-                  <span
-                    className="size-2.5 rounded-full"
-                    style={{ background: item.accent }}
-                  />
-                  {item.name}
-                </span>
-              </button>
+                <motion.div
+                  className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ backgroundColor: item.hoverTint }}
+                />
+                <div className="relative z-10">
+                  <div className="relative mb-3 aspect-[4/5] overflow-hidden rounded-[16px]">
+                    <RevealImage
+                      src={item.image}
+                      alt={item.imageAlt}
+                      className="absolute inset-0"
+                      imgClassName="transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+                    <span
+                      className="absolute top-3 left-3 size-2.5 rounded-full shadow"
+                      style={{ background: item.accent }}
+                    />
+                  </div>
+                  <p className="font-display text-2xl text-[var(--graphite)]">
+                    {item.name}
+                  </p>
+                  <p className="mt-1 text-sm text-[var(--graphite)]/55">
+                    {item.tagline}
+                  </p>
+                </div>
+              </motion.button>
             );
           })}
         </div>
 
-        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 24 }}
-              transition={{ duration: 0.45, ease: EASE }}
-              className="relative"
-            >
-              <p className="font-display text-4xl text-[var(--graphite)] md:text-5xl">
-                {product.name}
-              </p>
-              <p className="mt-3 text-lg text-[var(--graphite)]/70">
-                {product.tagline}
-              </p>
-              <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--graphite)]/60">
-                {product.description}
-              </p>
+        <motion.div
+          className="glass-card overflow-hidden rounded-[28px]"
+          animate={{ backgroundColor: product.hoverTint }}
+          transition={{ duration: 0.55, ease: EASE }}
+        >
+          <div className="grid items-stretch gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 16 }}
+                transition={{ duration: 0.45, ease: EASE }}
+                className="flex flex-col justify-center p-8 md:p-12"
+              >
+                <p className="font-display text-4xl text-[var(--graphite)] md:text-5xl">
+                  {product.name}
+                </p>
+                <p className="mt-3 text-lg text-[var(--graphite)]/70">
+                  {product.tagline}
+                </p>
+                <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--graphite)]/60">
+                  {product.description}
+                </p>
 
-              <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-[var(--graphite)]/10 pt-8">
-                {[
-                  { label: "Объём", value: product.volume },
-                  { label: "Ккал", value: product.calories },
-                  { label: "Белок", value: product.protein },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <dt className="text-[11px] tracking-[0.16em] text-[var(--graphite)]/40 uppercase">
-                      {stat.label}
-                    </dt>
-                    <dd className="mt-1 font-display text-xl text-[var(--graphite)]">
-                      {stat.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+                <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-[var(--graphite)]/10 pt-8">
+                  {[
+                    { label: "Объём", value: product.volume },
+                    { label: "Ккал", value: product.calories },
+                    { label: "Белок", value: product.protein },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <dt className="text-[11px] tracking-[0.16em] text-[var(--graphite)]/40 uppercase">
+                        {stat.label}
+                      </dt>
+                      <dd className="mt-1 font-display text-xl text-[var(--graphite)]">
+                        {stat.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-8 text-sm text-[var(--graphite)]/50">
+                  <span className="tracking-[0.14em] uppercase">Вкус&nbsp;— </span>
+                  {product.tasting}
+                </p>
+              </motion.div>
+            </AnimatePresence>
 
-              <p className="mt-8 text-sm text-[var(--graphite)]/50">
-                <span className="tracking-[0.14em] uppercase">Вкус&nbsp;— </span>
-                {product.tasting}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`pack-${product.id}`}
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -12 }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="relative mx-auto flex h-[420px] w-full max-w-sm items-center justify-center"
-            >
-              <div
-                className="absolute inset-8 rounded-[40%] opacity-70 blur-3xl"
-                style={{
-                  background: `radial-gradient(circle, ${product.accent}66, transparent 68%)`,
-                }}
-              />
-              <ProductPack
-                name={product.name}
-                accent={product.accent}
-                accentDeep={product.accentDeep}
-                milk={product.milk}
-                label={product.label}
-              />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`pack-${product.id}`}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="relative min-h-[320px] lg:min-h-[480px]"
+              >
+                <RevealImage
+                  src={product.image}
+                  alt={product.imageAlt}
+                  className="absolute inset-0"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/5" />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function ProductPack({
-  name,
-  accent,
-  accentDeep,
-  milk,
-  label,
-}: {
-  name: string;
-  accent: string;
-  accentDeep: string;
-  milk: string;
-  label: string;
-}) {
-  return (
-    <motion.div
-      className="relative h-[360px] w-[160px]"
-      animate={{ y: [0, -8, 0], rotate: [-1.5, 1.5, -1.5] }}
-      transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <div
-        className="absolute left-1/2 top-0 h-9 w-16 -translate-x-1/2 rounded-t-[8px]"
-        style={{
-          background: `linear-gradient(180deg, ${accentDeep}, ${accent})`,
-        }}
-      />
-      <div
-        className="absolute left-1/2 top-8 h-[310px] w-[150px] -translate-x-1/2 overflow-hidden rounded-[38%_38%_46%_46%/24%_24%_40%_40%] border border-white/60"
-        style={{
-          background: `linear-gradient(160deg, rgba(255,255,255,0.5), ${milk}99 40%, ${accent}44)`,
-          boxShadow: "0 28px 50px rgba(28,28,26,0.14)",
-        }}
-      >
-        <div
-          className="absolute inset-x-0 bottom-0 h-[72%]"
-          style={{
-            background: `linear-gradient(180deg, ${milk}, ${accent}33)`,
-          }}
-        />
-        <div
-          className="absolute top-[38%] left-1/2 w-[108px] -translate-x-1/2 -translate-y-1/2 rounded-[12px] px-2 py-3 text-center"
-          style={{ background: label }}
-        >
-          <p className="text-[9px] tracking-[0.2em] text-[var(--graphite)]/45 uppercase">
-            Lait Pur
-          </p>
-          <p className="font-display text-base text-[var(--graphite)]">{name}</p>
-        </div>
-        <div className="absolute top-6 bottom-8 left-3 w-3 rounded-full bg-white/50" />
-      </div>
-    </motion.div>
   );
 }

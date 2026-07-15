@@ -7,6 +7,8 @@ import { StoryBento } from "@/components/story/StoryBento";
 import { MilkBar } from "@/components/products/MilkBar";
 import { CowToGlass } from "@/components/timeline/CowToGlass";
 import { AppProviders, ThemeCanvas } from "@/components/providers/AppProviders";
+import { FloatingBlobs } from "@/components/ui/FloatingBlobs";
+import { RevealImage } from "@/components/ui/RevealImage";
 import { testimonials } from "@/data/content";
 import { motion } from "framer-motion";
 
@@ -16,15 +18,18 @@ export function HomePage() {
   return (
     <AppProviders>
       <ThemeCanvas>
+        <FloatingBlobs />
         <SiteHeader />
-        <main className="flex-1">
+        <main className="relative z-10 flex-1">
           <Hero />
           <StoryBento />
           <MilkBar />
           <CowToGlass />
           <Testimonials />
         </main>
-        <SiteFooter />
+        <div className="relative z-10">
+          <SiteFooter />
+        </div>
       </ThemeCanvas>
     </AppProviders>
   );
@@ -33,26 +38,38 @@ export function HomePage() {
 function Testimonials() {
   return (
     <section className="px-5 py-20 md:px-8 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
         {testimonials.map((item, i) => (
           <motion.blockquote
             key={item.name}
-            className="rounded-[24px] border border-[var(--graphite)]/[0.06] bg-white/35 p-8 backdrop-blur-sm"
+            className="glass-card group overflow-hidden rounded-[24px]"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ delay: i * 0.1, duration: 0.7, ease: EASE }}
+            whileHover={{ y: -4 }}
           >
-            <p className="font-display text-xl leading-snug text-[var(--graphite)] md:text-2xl">
-              «{item.quote}»
-            </p>
-            <footer className="mt-6 text-sm text-[var(--graphite)]/55">
-              <cite className="not-italic font-medium text-[var(--graphite)]">
-                {item.name}
-              </cite>
-              {" · "}
-              {item.role}
-            </footer>
+            <div className="relative h-44 overflow-hidden">
+              <RevealImage
+                src={item.image}
+                alt=""
+                className="absolute inset-0"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] to-transparent" />
+            </div>
+            <div className="p-8 pt-2">
+              <p className="font-display text-xl leading-snug text-[var(--graphite)] md:text-2xl">
+                «{item.quote}»
+              </p>
+              <footer className="mt-6 text-sm text-[var(--graphite)]/55">
+                <cite className="not-italic font-medium text-[var(--graphite)]">
+                  {item.name}
+                </cite>
+                {" · "}
+                {item.role}
+              </footer>
+            </div>
           </motion.blockquote>
         ))}
       </div>

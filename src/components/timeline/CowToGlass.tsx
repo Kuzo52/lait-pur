@@ -8,6 +8,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 import { useRef } from "react";
+import { RevealImage } from "@/components/ui/RevealImage";
 import { timelineSteps } from "@/data/content";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -42,7 +43,7 @@ export function CowToGlass() {
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--graphite)]/45 uppercase">
             Cow-to-Glass
           </p>
-          <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight text-[var(--graphite)]">
+          <h2 className="font-display text-[clamp(2.2rem,4.4vw,3.5rem)] leading-[1.1] text-[var(--graphite)]">
             От&nbsp;фермы до&nbsp;стакана
           </h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[var(--graphite)]/60">
@@ -51,7 +52,7 @@ export function CowToGlass() {
           </p>
         </motion.div>
 
-        <div className="relative mx-auto max-w-3xl">
+        <div className="relative mx-auto max-w-4xl">
           <div className="absolute top-3 bottom-3 left-[19px] w-[3px] rounded-full bg-[var(--graphite)]/8 md:left-1/2 md:-translate-x-1/2" />
           <motion.div
             className="absolute top-3 left-[19px] w-[3px] origin-top rounded-full md:left-1/2 md:-translate-x-1/2"
@@ -64,7 +65,7 @@ export function CowToGlass() {
             }}
           />
 
-          <ol className="relative space-y-14 md:space-y-20">
+          <ol className="relative space-y-16 md:space-y-24">
             {timelineSteps.map((step, index) => (
               <TimelineItem
                 key={step.id}
@@ -72,6 +73,7 @@ export function CowToGlass() {
                 title={step.title}
                 time={step.time}
                 body={step.body}
+                image={step.image}
                 progress={progress}
                 total={timelineSteps.length}
               />
@@ -88,6 +90,7 @@ function TimelineItem({
   title,
   time,
   body,
+  image,
   progress,
   total,
 }: {
@@ -95,6 +98,7 @@ function TimelineItem({
   title: string;
   time: string;
   body: string;
+  image: string;
   progress: MotionValue<number>;
   total: number;
 }) {
@@ -118,15 +122,27 @@ function TimelineItem({
       <div
         className={`hidden w-1/2 md:block ${isLeft ? "pr-12 text-right" : "pl-12 text-left"}`}
       >
-        <p className="text-xs tracking-[0.18em] text-[var(--graphite)]/40 uppercase">
-          {time}
-        </p>
-        <h3 className="mt-2 font-display text-2xl text-[var(--graphite)] md:text-3xl">
-          {title}
-        </h3>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--graphite)]/60 md:text-[15px]">
-          {body}
-        </p>
+        <div
+          className={`glass-card overflow-hidden rounded-[20px] ${isLeft ? "ml-auto" : "mr-auto"} max-w-sm`}
+        >
+          <RevealImage
+            src={image}
+            alt={title}
+            className="aspect-[16/10] w-full"
+            sizes="40vw"
+          />
+          <div className="p-5 text-left">
+            <p className="text-xs tracking-[0.18em] text-[var(--graphite)]/40 uppercase">
+              {time}
+            </p>
+            <h3 className="mt-2 font-display text-2xl text-[var(--graphite)] md:text-3xl">
+              {title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--graphite)]/60 md:text-[15px]">
+              {body}
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="relative z-10 flex w-10 shrink-0 justify-center md:absolute md:left-1/2 md:w-auto md:-translate-x-1/2">
@@ -138,16 +154,24 @@ function TimelineItem({
         </motion.span>
       </div>
 
-      <div className="flex-1 pb-2 md:hidden">
-        <p className="text-xs tracking-[0.18em] text-[var(--graphite)]/40 uppercase">
-          {time}
-        </p>
-        <h3 className="mt-2 font-display text-2xl text-[var(--graphite)]">
-          {title}
-        </h3>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--graphite)]/60">
-          {body}
-        </p>
+      <div className="glass-card flex-1 overflow-hidden rounded-[20px] md:hidden">
+        <RevealImage
+          src={image}
+          alt={title}
+          className="aspect-[16/10] w-full"
+          sizes="100vw"
+        />
+        <div className="p-5">
+          <p className="text-xs tracking-[0.18em] text-[var(--graphite)]/40 uppercase">
+            {time}
+          </p>
+          <h3 className="mt-2 font-display text-2xl text-[var(--graphite)]">
+            {title}
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--graphite)]/60">
+            {body}
+          </p>
+        </div>
       </div>
 
       <div className="hidden w-1/2 md:block" />

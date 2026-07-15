@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Leaf, Recycle, Sun, Droplets } from "lucide-react";
+import { RevealImage } from "@/components/ui/RevealImage";
 import { storyTiles } from "@/data/content";
 import { cn } from "@/lib/utils";
 
@@ -12,13 +13,6 @@ const icons = {
   organic: Leaf,
   packaging: Recycle,
   craft: Droplets,
-} as const;
-
-const accents = {
-  sage: "from-[#C5D5C0]/50 to-transparent",
-  sky: "from-[#B8D4E8]/55 to-transparent",
-  cream: "from-[#E8DFD0]/60 to-transparent",
-  graphite: "from-[var(--graphite)]/[0.06] to-transparent",
 } as const;
 
 export function StoryBento() {
@@ -35,109 +29,77 @@ export function StoryBento() {
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--graphite)]/45 uppercase">
             Our Story
           </p>
-          <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight text-[var(--graphite)]">
+          <h2 className="font-display text-[clamp(2.2rem,4.4vw,3.5rem)] leading-[1.1] text-[var(--graphite)]">
             Ферма, где вкус начинается с&nbsp;тишины
           </h2>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-[var(--graphite)]/60">
             Три принципа Lait&nbsp;Pur: спокойные животные, чистая органика
-            и&nbsp;упаковка, которая не&nbsp;остаётся послевкусием в&nbsp;земле.
+            и&nbsp;упаковка без&nbsp;послевкусия в&nbsp;земле.
           </p>
         </motion.div>
 
-        <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid auto-rows-[minmax(220px,auto)] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {storyTiles.map((tile, i) => {
             const Icon = icons[tile.id as keyof typeof icons];
+            const isHero = tile.id === "cows";
+
             return (
               <motion.article
                 key={tile.id}
                 className={cn(
-                  "group relative overflow-hidden rounded-[24px] border border-[var(--graphite)]/[0.06] bg-white/40 p-7 backdrop-blur-sm",
+                  "group glass-card relative overflow-hidden rounded-[24px]",
                   tile.span,
                 )}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08, duration: 0.7, ease: EASE }}
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -6, scale: 1.01 }}
               >
+                <RevealImage
+                  src={tile.image}
+                  alt={tile.imageAlt}
+                  className={cn(
+                    "absolute inset-0",
+                    isHero ? "opacity-100" : "opacity-90",
+                  )}
+                  imgClassName="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
                 <div
                   className={cn(
-                    "pointer-events-none absolute inset-0 bg-gradient-to-br opacity-80 transition-opacity duration-500 group-hover:opacity-100",
-                    accents[tile.accent],
+                    "absolute inset-0",
+                    isHero
+                      ? "bg-gradient-to-t from-[var(--graphite)]/75 via-[var(--graphite)]/25 to-transparent"
+                      : "bg-gradient-to-t from-[var(--graphite)]/70 via-[var(--graphite)]/30 to-[var(--graphite)]/10",
                   )}
                 />
 
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-6 flex items-start justify-between gap-4">
-                    <p className="text-[11px] font-medium tracking-[0.18em] text-[var(--graphite)]/45 uppercase">
+                <div
+                  className={cn(
+                    "relative z-10 flex h-full flex-col p-7",
+                    isHero ? "min-h-[360px] justify-end md:min-h-[460px]" : "min-h-[240px] justify-end",
+                  )}
+                >
+                  <div className="mb-4 flex items-start justify-between gap-4">
+                    <p className="text-[11px] font-medium tracking-[0.18em] text-white/65 uppercase">
                       {tile.eyebrow}
                     </p>
-                    <motion.span
-                      className="flex size-10 items-center justify-center rounded-[12px] border border-[var(--graphite)]/8 bg-white/55 text-[var(--graphite)]"
-                      whileHover={{ rotate: -8, scale: 1.06 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                    >
+                    <span className="flex size-10 items-center justify-center rounded-[12px] border border-white/25 bg-white/15 text-white backdrop-blur-md">
                       <Icon className="size-4" strokeWidth={1.6} />
-                    </motion.span>
+                    </span>
                   </div>
-
                   <h3
                     className={cn(
-                      "font-display text-[var(--graphite)]",
-                      tile.id === "cows"
-                        ? "text-3xl md:text-4xl"
-                        : "text-2xl",
+                      "font-display text-white",
+                      isHero ? "text-3xl md:text-4xl" : "text-2xl",
                     )}
                   >
                     {tile.title}
                   </h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--graphite)]/60 md:text-[15px]">
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-white/80 md:text-[15px]">
                     {tile.body}
                   </p>
-
-                  {tile.id === "cows" && (
-                    <div className="mt-auto pt-10">
-                      <FloatingHerd />
-                    </div>
-                  )}
-
-                  {tile.id === "organic" && (
-                    <div className="mt-auto flex items-end gap-1 pt-8">
-                      {[92, 100, 88, 96].map((h, idx) => (
-                        <motion.div
-                          key={idx}
-                          className="w-3 rounded-t-full bg-[#7FA892]/70"
-                          style={{ height: h * 0.45 }}
-                          animate={{ scaleY: [1, 1.12, 1] }}
-                          transition={{
-                            duration: 2.2 + idx * 0.2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: idx * 0.15,
-                          }}
-                        />
-                      ))}
-                      <span className="ml-2 self-center text-xs text-[var(--graphite)]/45">
-                        травяной индекс
-                      </span>
-                    </div>
-                  )}
-
-                  {tile.id === "packaging" && (
-                    <motion.div
-                      className="mt-auto flex justify-end pt-6"
-                      animate={{ rotate: [0, 6, 0, -6, 0] }}
-                      transition={{
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <div className="relative h-16 w-10 rounded-[10px] border border-[var(--graphite)]/15 bg-white/70">
-                        <div className="absolute inset-x-1.5 top-2 bottom-2 rounded-[6px] border border-dashed border-[#9BB8C9]/60" />
-                      </div>
-                    </motion.div>
-                  )}
                 </div>
               </motion.article>
             );
@@ -145,33 +107,5 @@ export function StoryBento() {
         </div>
       </div>
     </section>
-  );
-}
-
-function FloatingHerd() {
-  return (
-    <div className="relative h-20 w-full max-w-sm">
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          className="absolute bottom-0 rounded-full bg-[var(--graphite)]/8"
-          style={{
-            width: 48 + i * 14,
-            height: 28 + i * 4,
-            left: 12 + i * 70,
-          }}
-          animate={{ y: [0, -6 - i * 2, 0], x: [0, 4, 0] }}
-          transition={{
-            duration: 3.4 + i * 0.4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.3,
-          }}
-        >
-          <div className="absolute -top-3 left-1/2 size-5 -translate-x-1/2 rounded-full bg-[var(--graphite)]/12" />
-          <div className="absolute -top-1 left-[55%] size-2 rounded-full bg-[var(--graphite)]/20" />
-        </motion.div>
-      ))}
-    </div>
   );
 }
