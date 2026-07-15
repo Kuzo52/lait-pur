@@ -96,7 +96,7 @@ export function SiteFooter() {
             <motion.button
               type="submit"
               disabled={status === "loading" || status === "success"}
-              className="h-12 rounded-[12px] bg-[var(--graphite)] px-6 text-sm font-medium text-[var(--milk)] disabled:cursor-not-allowed disabled:opacity-70"
+              className="h-12 rounded-full bg-black px-6 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-70"
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
             >

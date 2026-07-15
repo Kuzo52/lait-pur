@@ -114,3 +114,10 @@ a {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+/* Надёжные CTA на чёрном — всегда читаемый белый текст */
+.btn-solid {
+  background-color: #000;
+  color: #fff;
+  font-weight: 500;
+}
