@@ -3,6 +3,7 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/hero/Hero";
+import { AboutSection } from "@/components/about/AboutSection";
 import { StoryBento } from "@/components/story/StoryBento";
 import { MilkBar } from "@/components/products/MilkBar";
 import { CowToGlass } from "@/components/timeline/CowToGlass";
@@ -23,6 +24,7 @@ export function HomePage() {
           <SiteHeader />
           <main className="relative z-10 flex-1 bg-transparent">
             <Hero />
+            <AboutSection />
             <StoryBento />
             <MilkBar />
             <CowToGlass />

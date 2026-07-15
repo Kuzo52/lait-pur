@@ -37,10 +37,11 @@ export function CowToGlass() {
             Путь
           </p>
           <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.08] tracking-wide text-[#1c1c1a]">
-            От фермы до стакана
+            От фермы до&nbsp;стакана
           </h2>
           <p className="mt-4 text-base text-[#1c1c1a]/60">
-            Линия заполняется по&nbsp;скроллу&nbsp;— как поток молока.
+            Путь классического молока: линия на&nbsp;странице заполняется
+            по&nbsp;скроллу.
           </p>
         </div>
 

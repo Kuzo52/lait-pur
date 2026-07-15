@@ -13,13 +13,14 @@ export function StoryBento() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl">
           <p className="mb-3 text-[11px] font-medium tracking-[0.22em] text-[#1c1c1a]/40 uppercase">
-            История
+            Принципы
           </p>
           <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.08] tracking-wide text-[#1c1c1a]">
-            Ферма как точный процесс
+            Как устроена чистота
           </h2>
           <p className="mt-4 max-w-lg text-base text-[#1c1c1a]/60">
-            MŪNA строится на цифрах и&nbsp;ритме: пастбище, чистота, цикл упаковки.
+            Три опоры MŪNA: спокойное стадо, строгая проверка и&nbsp;упаковка,
+            которая не&nbsp;ломает цикл.
           </p>
         </div>
 

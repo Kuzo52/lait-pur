@@ -21,10 +21,11 @@ export function MilkBar() {
             Линейка
           </p>
           <h2 className="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.08] tracking-wide text-[#1c1c1a]">
-            Четыре сигнала вкуса
+            Четыре вкуса одной фермы
           </h2>
           <p className="mt-4 max-w-lg text-base text-[#1c1c1a]/60">
-            Листайте карточки&nbsp;— фон мягко меняет оттенок под&nbsp;вкус.
+            Классика и&nbsp;какао от&nbsp;стада; овёс и&nbsp;миндаль&nbsp;—
+            растительная линия. Фон мягко принимает оттенок выбранного вкуса.
           </p>
         </div>
 
